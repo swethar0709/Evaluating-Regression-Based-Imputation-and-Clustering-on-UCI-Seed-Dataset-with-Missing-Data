@@ -1,0 +1,33 @@
+Where to get data and how to implement the file:
+
+We are sourcing the data from the URL: "https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt". To run the code, you should use Jupyter Notebook. Simply import the file into your notebook and execute the code.
+
+Project Summary:
+
+This project aimed to evaluate the effectiveness of a regression-based imputation method for handling missing data in the UCI seed dataset, and observe its impact on a subsequent clustering task.
+
+Problem Addressing:
+
+The project started by randomly deleting 1 or 2 feature values in each data item from the UCI seed dataset, effectively creating missing data. We then needed to impute (predict) the values for these missing attributes before applying clustering, to evaluate how well the clusters represent the labels. The task also involved evaluating the quality of imputation and the similarity of resulting clusters to those obtained on the original dataset.
+
+Solution Implementation:
+
+We implemented a modified K-Nearest Neighbors (K-NN) regression method to impute the missing values. This method replaced missing values with the average of the values of its K nearest neighbors. The Euclidean distance was used to measure the distance between neighbors.
+
+For the clustering part, we used the K-means algorithm. We evaluated the quality of imputation by calculating the mean squared error between the original and imputed data, and the clustering result's quality by calculating the silhouette score.
+
+Results:
+
+The mean squared error for the imputed values was found to be 1.5011, indicating a reasonable level of accuracy for our imputation method.
+
+The silhouette score for the original dataset was 0.61, while for the imputed dataset, it was 0.55. These results show that the quality of the clusters produced using the imputed data is slightly lower than those created with the original data.
+
+Discussion:
+
+Our modified K-NN regression imputation method showed decent results, filling in the missing values with a reasonable level of accuracy. However, the fact that the silhouette score of the imputed dataset was slightly lower than the original dataset suggests that the imputation process introduced some noise into the data, which slightly affected the quality of the resulting clusters.
+
+
+
+
+
+
